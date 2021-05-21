@@ -1,0 +1,156 @@
+.header{
+    position: absolute;
+   left: 0%;
+   right: 0%;
+   background: rgba(168, 168, 168, 0.2);
+   backdrop-filter: blur(67.957px);
+   }
+   
+   .tittle{
+       position: static;
+       height: 28px;
+       left: -3px;
+       right: -3px;
+       top: 0px;
+       
+       font-style: normal;
+       font-weight: 600;
+       font-size: 17px;
+       line-height: 22px;
+       /* identical to box height, or 129% */
+       
+       text-align: center;
+       letter-spacing: -0.408px;
+       
+       /* System Background / Light / Primary */
+       
+       color: #FFFFFF;
+       
+       /* Inside Auto Layout */
+       
+       flex: none;
+       order: 0;
+       flex-grow: 0;
+       margin: 10px 0px;
+   }
+   
+   
+.connectWallet{
+    height: 22px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 22px;
+    /* identical to box height, or 129% */
+    
+    display: flex;
+    align-items: center;
+    text-align: right;
+    letter-spacing: -0.408px;
+    
+    color: #E7CA5F;
+}
+
+@media screen and (max-width: 430px) {
+    .margin-header{
+      margin-bottom: 0px !important;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .margin-header{
+      margin-bottom: 0px !important;
+    }
+}
+
+.top-strip{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.small-logo{
+  line-height: 0;
+}
+.top-strip{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(143 143 143 / 0.2);
+  padding: 0px 22px;
+  z-index: 9999;
+}
+.application-link{
+  display: flex;
+  align-items: center;
+  height: 24px;
+}
+.application-link ul{
+  margin: 0px;
+}
+.application-link ul li{
+  list-style: none;
+  display: inline;
+  padding: 0px 10px;
+}
+.application-link ul li a{
+  font-family: SFProText-Medium;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  display: block;
+}
+.small-logo img{
+  width: 15px;
+  height: auto;
+}
+.time-wrap ul{
+  margin: 0px;
+}
+.time-wrap ul li{
+  list-style: none;
+  display: inline-block;
+  font-family: SFProText-Medium;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0px 5px;
+}
+.time-wrap ul li:last-child{
+  margin-right: 0px;
+}
+.application-link ul{
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 575px){
+  .top-strip{
+    padding: 2px 15px;
+  }
+ 
+  .time-wrap ul li{
+    margin: 0px 0px;
+    font-size: 10px;
+  }
+  .icon-wifi{
+    width: 20px;
+    height: auto;
+  }
+  .time-wrap ul li:last-child{
+    width: 100%;
+  }
+  .top-right{
+    position: absolute;
+    right: 15px;
+    width: 100px;
+    line-height: 0;
+    text-align: right;
+    top: 2px; 
+  }
+  .application-link ul li{
+    padding: 0px 3px;
+  }
+  .application-link ul li a{
+    font-size: 10px;
+  }
+}

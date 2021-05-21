@@ -1,0 +1,24 @@
+@font-face {
+  font-family: Roboto-Bold;
+  src: url("../fonts/Roboto-Bold.ttf");
+}
+@font-face {
+  font-family: Roboto-Medium;
+  src: url("../fonts/Roboto-Medium.ttf");
+}
+@font-face {
+  font-family: Roboto-Regular;
+  src: url("../fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: SFProText-Semibold;
+  src: url("../fonts/SFProText-Semibold.ttf");
+}
+@font-face {  
+  font-family: SFProDisplay-Thin;
+  src: url("../fonts/SFProDisplay-Thin.ttf");
+}
+@font-face {
+  font-family: SFProText-Medium;
+  src: url("../fonts/SFProText-Medium.ttf");
+}
