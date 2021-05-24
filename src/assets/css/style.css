@@ -2166,3 +2166,10 @@ select {
   border-radius: 50%;
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
+
+.p-listbox {
+  background: #ffffff;
+  color: #495057;
+  border: none !important; 
+  border-radius: none !important;
+}

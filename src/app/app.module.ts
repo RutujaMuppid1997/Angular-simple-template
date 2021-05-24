@@ -24,6 +24,8 @@ import {ToastModule} from 'primeng/toast';
 import {CheckboxModule} from 'primeng/checkbox';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 import {SidebarModule} from 'primeng/sidebar';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import {ListboxModule} from 'primeng/listbox';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import {SidebarModule} from 'primeng/sidebar';
     LoaderComponent,
     HeaderComponent,
     FooterComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,14 +45,14 @@ import {SidebarModule} from 'primeng/sidebar';
     ChartModule,
     CardModule,
     DropdownModule,
-    BrowserModule, 
     FormsModule,
     BrowserAnimationsModule,
     InputTextModule,
     PanelModule,
     ToastModule,
     CheckboxModule,
-    SidebarModule
+    SidebarModule,
+    ListboxModule
   ],
   providers: [
     LoaderService,

@@ -1,0 +1,9 @@
+<div class="desk-wrap">
+    <p-button type="button" class="p-mr-2" (click)="visibleSidebar()" icon="pi pi-arrow-right"></p-button>
+    <p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+        <h3>Dashboard</h3>
+        <p-listbox [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-listbox>
+    </p-sidebar>
+
+  
+</div>
