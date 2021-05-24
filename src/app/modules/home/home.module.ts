@@ -15,7 +15,7 @@ import {ButtonModule} from 'primeng/button';
       CommonModule, 
       HomeRoutingModule, 
       SidebarModule,
-      ButtonModule
+      ButtonModule 
   ],
   
 })
