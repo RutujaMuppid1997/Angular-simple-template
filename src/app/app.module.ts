@@ -23,6 +23,7 @@ import {PanelModule} from 'primeng/panel';
 import {ToastModule} from 'primeng/toast';
 import {CheckboxModule} from 'primeng/checkbox';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
+import {SidebarModule} from 'primeng/sidebar';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ModuleWithProviders } from '@angular/compiler/src/core';
     PanelModule,
     ToastModule,
     CheckboxModule,
+    SidebarModule
   ],
   providers: [
     LoaderService,

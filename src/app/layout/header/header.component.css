@@ -79,6 +79,7 @@
   background-color: rgb(143 143 143 / 0.2);
   padding: 0px 22px;
   z-index: 9999;
+  background-color: #009933;
 }
 .application-link{
   display: flex;

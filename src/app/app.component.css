@@ -237,7 +237,7 @@ border-radius: 16px;
 
 .bg{    
   /* background: url('../assets/images/bg.png') no-repeat center fixed;      */
-  background: url('../assets/images/desk-bg.png') no-repeat center fixed;     
+  /* background: url('../assets/images/desk-bg.png') no-repeat center fixed;      */
   background-size: cover;
   min-height: 100vh;
 }

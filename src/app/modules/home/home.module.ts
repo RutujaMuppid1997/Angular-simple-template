@@ -5,6 +5,8 @@ import { HomeRoutingModule } from './home-routing.module';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home.component';
 import { DatePipe } from '@angular/common';
+import { SidebarModule } from 'primeng/sidebar';
+import {ButtonModule} from 'primeng/button';
 
 
 @NgModule({
@@ -12,6 +14,8 @@ import { DatePipe } from '@angular/common';
   imports: [
       CommonModule, 
       HomeRoutingModule, 
+      SidebarModule,
+      ButtonModule
   ],
   
 })
