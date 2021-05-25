@@ -17,16 +17,12 @@ export class ApiHeaderInterceptorApiHeaderInterceptor implements HttpInterceptor
 		
 
 		if (!request.url.includes("company/")) {
-			let token = "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..RTxka37ILpiBaCA3jmJnlw.AQZpcR4XkbN5Fo_5K4Zv5jf7AWJC7LfJh5J3A7CUsg33Sc65rYJXenLr7s-ts-6arnhdV7gHfig1gbkzcT5p9xDNOWfNSCw3vzR7OLaoI9T0-pigdiAUO_StX6CCjkCZr6XK6JI8YkarqPY8CzkKIfnDDEEBTgZzZ0qt7H5kFq1195EK4A-DD4rNmmo2h8aA6v8EqmQNeut1K0aN0ItrK2n1qq6ZacZRW056KS6wav34b9Bvh54H5aKERMb5GnDeMObcHorWaay2WzoVAu4RZqXzkzoIqbcBdQpMNnmjCqSxtA6OIGauA2rUCDR6q4nVxx8egIfQ01KhuCSUDqwnwJOb9PIpi5psI6APPMge1y7ehplQ1jLEPJFZKHEh-tl1Wsofr7A7rpLtleHov3ghmt4NzxgcaUPpMJpLK0yATZgY5FEnDRSZhFnfmcSvMfWiRb9xZ8OP0gZShr3OX94o8Fxk8IOhDYsUBFkADHipRCOvJOG5jIkDAjKL5-a2FcvqfqCIhhXpKqpJ7AlOUeDxo4qOM4sXwxIpl2n68GYbqzlH_5CzSUdXhv2Wk194Nr4v9W5YQSSXb3glCfSZ-80kdvNLIPE6t_G1cedMcgsaXPrzi2DExsBEm-hUft1cgaRSWF4E4PRo2wE7qOoCf30l1W3JSu5tsofcyr-1Ml9lXNy9i0eph_jCNUlhEhUxkfwd5cr2M08W4a_-8wy1ydxsmKVecj1rqyMP1txbJNCV_rBHFgp853KDEoUhnZU03X52.zTG2Gl9bHT5v-VqKR9mXVg"
+			let token = "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..6jtVK7Po5Tc4e5pXL3rn2g.spaqS_XIsWmt3a2wxEAuCFLe0lvk14T_lJ6EFZh8h6_gjOUlKoxZkgsZtP-tr553xNeWYn3_laguXP12weU8z8JVv3fmF46P0F2LeBqRmG9WTvSXD70PQrqxiH-udf4c3F-hfBr4szgE5E0e1eGqbKfPlmuqciEFTyNKSgenViqFrnssUFQiAwFfilRydx8v9lPPrmXVz9eJOEzWFYnPMlPb-jKum5OIcrQPk378nC4NaVsw59q6cJs_wOnun8nwJcDot6vOQgQuJJ4QTm0VK83UY5ELI05HnB-v_ZXnVaQLZU9K4AAfHjhVwp32m8BDsxqZQnI0UgNpn13IpLdPhMUra-9qdZtW1IwkGxipdVbI9PHhYd2Gy7KIuKzao61wQTge6sDbEBUjlMhZi1UJke87rh1nI8nJC4U-wYflVjDTxw1QI2X4iEYY1tFfuf_XIBFsBwA9DhQk8j_qJBC8_RvFfBhlYLDhixH6Ifi9X42YgQQUPfKDVTk8vbRr_HifmS-iXdeW8LeuWlgWC8e4_D6LahgOMVNG43FbH-UAhyWbpV16UwFeRs-pFQm16V61YSv-mHLEQJOteqothrDdMmcKpGVSacLM-KUY_1jUEHf_e3ph87ZC4hGGwoLhYbg23C3L0JkaLchKg_8-bHeSdPB5x2plPXWv4qse-GFgLCDIGxTjnuoF_7gZq48KP2rpJ0cPTvAbeysVz_-CwFWRSuJ48-mGAD6PHcMigTXEPTqfRWYYHa-udrG9wN7OXb-E.LqJojuwv1bv6C7KJQ1Tjtw"
 			if (token) {
 				request = request.clone({
 					setHeaders: {
 						Authorization: `Bearer ${token}`,
 						responseType: "JSON",
-						// ContentSecurityPolicy: "default-src 'self'",
-						//  segment: currentUser != null ? this.credentialsService.encryptdata(currentUser.userName) : this.credentialsService.encryptdata("44reyy") ,
-						// CacheControl: "no-cache, no-store, must-revalidate, post- check=0, pre-check=0",
-						// Pragma: 'no-cache', Expires: '0'
 					}, url: environment.endPoint + request.url,
 				});
 				request = request.clone({ url: request.url });

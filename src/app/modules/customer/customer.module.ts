@@ -4,7 +4,7 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { CustomerRoutingModule } from './customer-routing.module';
 import { TableModule } from 'primeng/table';
 import { InvoicesComponent } from './components/invoices/invoices.component';
-
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [CustomerComponent, InvoicesComponent],
@@ -12,6 +12,7 @@ import { InvoicesComponent } from './components/invoices/invoices.component';
     CommonModule,
     CustomerRoutingModule,
     TableModule,
+    RouterModule
   ]
 })
 export class CustomerModule { }

@@ -14,9 +14,9 @@ export class SidebarComponent implements OnInit {
   constructor( private router: Router) {
     this.cities = [
       { name: 'Home', code: 0 },
-      { name: 'Employees', code: 1 },
+      // { name: 'Employees', code: 1 },
       { name: 'Customers', code: 2 },
-      { name: 'Tax', code: 3 },
+      // { name: 'Tax', code: 3 },
     ];
   }
 

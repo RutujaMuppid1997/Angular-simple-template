@@ -1,18 +1,17 @@
 <div class="desk-wrap">
     <div *ngIf="customer.length !== 0">
-        <p><b>Customer Name:</b> {{customer.Customer.DisplayName}}</p>
-        <p><b>Mobile No:</b> {{customer.Customer.Mobile.FreeFormNumber}}</p>
-        <p><b>Email:</b> {{customer.Customer.PrimaryEmailAddr.Address}}</p>
-        <p><b>Balance:</b> {{customer.Customer.Balance}}</p>
+    <p *ngIf="customer.Customer.DisplayName != undefined"><b>Customer Name:</b> {{customer.Customer.DisplayName}}</p>
+        <p *ngIf="customer.Customer.Mobile != undefined"><b>Mobile No:</b> {{customer.Customer.Mobile.FreeFormNumber}}</p>
+        <p *ngIf="customer.Customer.PrimaryEmailAddr != undefined"><b>Email:</b> {{customer.Customer.PrimaryEmailAddr.Address}}</p>
+        <p *ngIf="customer.Customer.Balance != undefined"><b>Balance:</b> {{customer.Customer.Balance}}</p>
     </div>
-    
-    
+    <button type="button" class="p-mr-2 button" [routerLink]="['/customer']" >Back</button>
     
     <h3>Invoice Details</h3>
-     <p-table [value]="products" [paginator]="true" [rows]="4"> 
+     <p-table  [value]="products" [paginator]="true" [rows]="4"> 
         <ng-template pTemplate="header">
             <tr>
-                <th>Date</th>
+                <th>Date</th> 
                 <th>Type</th>
                 <th>Number</th>
                 <th>Due Date</th>
