@@ -6,13 +6,12 @@ import { TableModule } from 'primeng/table';
 import { InvoicesComponent } from './components/invoices/invoices.component';
 
 
-
 @NgModule({
   declarations: [CustomerComponent, InvoicesComponent],
   imports: [
     CommonModule,
     CustomerRoutingModule,
-    TableModule
+    TableModule,
   ]
 })
 export class CustomerModule { }

@@ -35,7 +35,7 @@ export class CustomerComponent implements OnInit {
 
   getInvoice(customer:any){
     console.log(customer)
-
+    this.route.navigateByUrl('customer/invoice?id=' + customer.Id);
   }
 
   

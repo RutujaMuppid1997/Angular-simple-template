@@ -1,25 +1,40 @@
 <div class="desk-wrap">
-    <h3>Customer Details</h3>
-    <p-table [value]="products" [paginator]="true" [rows]="4">
+    <div *ngIf="customer.length !== 0">
+        <p><b>Customer Name:</b> {{customer.Customer.DisplayName}}</p>
+        <p><b>Mobile No:</b> {{customer.Customer.Mobile.FreeFormNumber}}</p>
+        <p><b>Email:</b> {{customer.Customer.PrimaryEmailAddr.Address}}</p>
+        <p><b>Balance:</b> {{customer.Customer.Balance}}</p>
+    </div>
+    
+    
+    
+    <h3>Invoice Details</h3>
+     <p-table [value]="products" [paginator]="true" [rows]="4"> 
         <ng-template pTemplate="header">
             <tr>
-                <th>Display Name</th>
-                <th>GST Registration Type</th>
-                <th>Currency Ref</th>
-                <th>Bill With Parent</th>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Number</th>
+                <th>Due Date</th>
                 <th>Balance</th>
+                <th>Total Before</th>
+                <th>Tax</th>
+
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>
             <tr>
-                <td>{{product.DisplayName}}</td>
-                <td>{{product.GSTRegistrationType}}</td>
-                <td>{{product.CurrencyRef.value}}{{product.CurrencyRef.name}}</td>
-                <td>{{product.BillWithParent}}</td>
-                <td>{{product.Balance}}</td>
+                <td>{{product.TxnDate}}</td>
+                <td>Invoice</td>
+                <td>{{product.DocNumber}}</td>
+                <td>{{product.DueDate}}</td>
+                <td>{{product.Balance}}</td> 
+                <td>{{product.TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable}}</td>
+                <td>{{product.TxnTaxDetail.TotalTax}}</td>
+
             </tr>
         </ng-template>
     </p-table>
     </div>
     
-    
+     
