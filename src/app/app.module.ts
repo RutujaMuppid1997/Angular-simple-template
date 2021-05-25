@@ -47,12 +47,12 @@ import {ListboxModule} from 'primeng/listbox';
     DropdownModule,
     FormsModule,
     BrowserAnimationsModule,
-    InputTextModule,
+    InputTextModule, 
     PanelModule,
     ToastModule,
     CheckboxModule,
     SidebarModule,
-    ListboxModule
+    ListboxModule,
   ],
   providers: [
     LoaderService,

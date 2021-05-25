@@ -5,6 +5,8 @@ declare var $: any;
 import * as Highcharts from 'highcharts'; 
 import { LoaderService } from '../../../common/loader/service/loader.service';
 import { Router } from '@angular/router';
+import { HttpGenericService } from 'src/app/services/http-services/http-genric.service';
+import { first } from 'rxjs/operators';
 
 
 
@@ -23,14 +25,27 @@ export class HomeComponent implements OnInit {
   title = 'QuickBookBank';
   selectedItem: any;
   toolbarWallet!: string
+  products:any=[];
 
-  constructor(private http: HttpClient, public loaderService: LoaderService , public route:Router) {
-
+  constructor(private http: HttpClient, private httpGenericRouteSerivce: HttpGenericService,
+    public loaderService: LoaderService , 
+    public route:Router) {
   }
  
 
   ngOnInit() {
-   
+    this.httpGenericRouteSerivce
+    .fetchAll("4620816365164524170"+ '/query/' + '?query=select%20%2a%20from%20CompanyInfo&minorversion=57')
+    .pipe(first())
+    .subscribe((data: any) => {
+     console.log(data)
+     if(data.QueryResponse)
+     {
+       this.products= data.QueryResponse.CompanyInfo;
+     }
+
+    });
+
   }
 
   

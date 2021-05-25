@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   //  endPoint: "https://9faa2e99cccb.ngrok.io/api/v1.0/"
-   endPoint:'https://api.yieldbankapp.finance/api/v1.0/'
+   endPoint:'https://sandbox-quickbooks.api.intuit.com/v3/company/'
 };
 
 /*

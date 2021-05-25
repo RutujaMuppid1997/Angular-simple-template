@@ -12,7 +12,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.0.1",
-    "@angular/cdk": "^11.0.2",
+    "@angular/cdk": "^11.2.13",
     "@angular/common": "~11.0.1",
     "@angular/compiler": "~11.0.1",
     "@angular/core": "~11.0.1",
@@ -37,6 +37,7 @@
     "ethereumjs-util": "^7.0.7",
     "highcharts": "^8.2.2",
     "highcharts-angular": "^2.8.2",
+    "intuit-oauth": "^3.0.2",
     "jquery": "^3.5.1",
     "ledger": "^0.1.0",
     "moment": "^2.29.1",

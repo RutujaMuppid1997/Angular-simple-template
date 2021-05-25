@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home.component';
 import { DatePipe } from '@angular/common';
 import { SidebarModule } from 'primeng/sidebar';
 import {ButtonModule} from 'primeng/button';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {ButtonModule} from 'primeng/button';
       CommonModule, 
       HomeRoutingModule, 
       SidebarModule,
-      ButtonModule 
+      ButtonModule,
+      TableModule
   ],
   
 })

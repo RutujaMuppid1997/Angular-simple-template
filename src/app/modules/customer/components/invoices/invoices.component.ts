@@ -6,11 +6,12 @@ import { LoaderService } from 'src/app/common/loader/service/loader.service';
 import { HttpGenericService } from 'src/app/services/http-services/http-genric.service';
 
 @Component({
-  selector: 'app-customer',
-  templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.css']
+  selector: 'app-invoices',
+  templateUrl: './invoices.component.html',
+  styleUrls: ['./invoices.component.css']
 })
-export class CustomerComponent implements OnInit {
+export class InvoicesComponent implements OnInit {
+
   products:any=[];
 
   constructor(private http: HttpClient, private httpGenericRouteSerivce: HttpGenericService,
@@ -33,10 +34,7 @@ export class CustomerComponent implements OnInit {
 
   }
 
-  getInvoice(customer:any){
-    console.log(customer)
-
-  }
+ 
 
   
 }  
