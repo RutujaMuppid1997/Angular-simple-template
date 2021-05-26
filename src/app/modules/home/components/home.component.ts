@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.httpGenericRouteSerivce
-    .fetchAll("4620816365164524170"+ '/query/' + '?query=select%20%2a%20from%20CompanyInfo&minorversion=57')
+    .fetchAll("company/4620816365164524170"+ '/query/' + '?query=select%20%2a%20from%20CompanyInfo&minorversion=57')
     .pipe(first())
     .subscribe((data: any) => {
      console.log(data)

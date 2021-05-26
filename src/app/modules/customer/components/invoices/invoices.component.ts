@@ -28,7 +28,7 @@ export class InvoicesComponent implements OnInit {
  
   ngOnInit() {
     this.httpGenericRouteSerivce
-    .fetchAll("4620816365164524170"+ '/customer/'+ this.id + '?')
+    .fetchAll("company/4620816365164524170"+ '/customer/'+ this.id + '?')
     .pipe(first())
     .subscribe((data: any) => {
      console.log(data) 
@@ -43,7 +43,7 @@ export class InvoicesComponent implements OnInit {
 
   getInvoices(){
     this.httpGenericRouteSerivce
-    .fetchAll("4620816365164524170"+ '/query/' + '?query=select%20%2a%20from%20invoice&minorversion=57')
+    .fetchAll("company/4620816365164524170"+ '/query/' + '?query=select%20%2a%20from%20invoice&minorversion=57')
     .pipe(first())
     .subscribe((data: any) => {
      console.log(data) 
