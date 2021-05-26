@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     .pipe(first())
     .subscribe((data: any) => {
      console.log(data)
-     window.open(data);
+     window.open(data.url);
     });
  
   }
