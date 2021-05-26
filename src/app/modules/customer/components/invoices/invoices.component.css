@@ -180,6 +180,7 @@
     border-radius: 9px;
     background-color: #009933;
     color: white;
+    border: none;
   }
   .center {
     position: fixed;
