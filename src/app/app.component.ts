@@ -18,21 +18,44 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient, public loaderService: LoaderService,
     private httpGenericRouteSerivce: HttpGenericService,
   ) {
-
     this.httpGenericRouteSerivce
-    .fetchAll('http://localhost:8000/authUri')
+    .fetchAll('http://localhost:8000/checkCallBack')
     .pipe(first())
     .subscribe((data: any) => {
-     console.log(data)
-     window.open(data.url);
+      this.initializeData();
     });
- 
   }
 
   ngOnInit() {
-    
+
   }
 
- 
+
+  initializeData(){
+    this.httpGenericRouteSerivce
+      .fetchAll('http://localhost:8000/authUri')
+      .pipe(first())
+      .subscribe((data: any) => {
+        console.log(data)
+        window.open(data.url);
+        let interval =setInterval(() => {
+          this.httpGenericRouteSerivce
+            .fetchAll('http://localhost:8000/checkCallBack')
+            .pipe(first())
+            .subscribe((data: any) => {
+              if (data) {
+                this.httpGenericRouteSerivce
+                  .fetchAll('http://localhost:8000/retrieveToken')
+                  .pipe(first())
+                  .subscribe((data: any) => {
+                     localStorage.setItem('auth',data.tokenDetails.token.access_token)
+                  });
+                  clearInterval(interval);
+              }
+            });
+        }, 10000);
+      });
+
+  }
 }
 
