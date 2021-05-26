@@ -22,7 +22,10 @@ export class AppComponent implements OnInit {
     .fetchAll('http://localhost:8000/checkCallBack')
     .pipe(first())
     .subscribe((data: any) => {
-      this.initializeData();
+      if(!data)
+      {
+        this.initializeData();
+      }
     });
   }
 
