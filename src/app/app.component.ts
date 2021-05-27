@@ -26,15 +26,21 @@ export class AppComponent implements OnInit {
     .subscribe((data: any) => {
       if(!data)
       {
-        this.initializeData();
+        this.isToken = false;
+      }else{
+        this.isToken = true;
       }
     });
+    
   }
 
   ngOnInit() {
 
   }
 
+  signIn(){
+    this.initializeData();
+  }
 
   initializeData(){
     this.httpGenericRouteSerivce
@@ -56,7 +62,8 @@ export class AppComponent implements OnInit {
                   .subscribe((data: any) => {
                      this.isToken = true;
                      window.close();
-                     localStorage.setItem('auth',data.tokenDetails.token.access_token)
+                     localStorage.setItem('auth',data.tokenDetails.token.access_token);
+                     
                   });
                   clearInterval(interval);
               }
