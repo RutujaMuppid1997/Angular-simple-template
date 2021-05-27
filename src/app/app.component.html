@@ -17,11 +17,11 @@
     <div class="bg">
         <main class="supreme-container">
             <app-header></app-header>
-            <div class="mt-5 ml-3">
+            <div class="mt-5 ml-3" *ngIf = "isToken">
                 <app-sidebar></app-sidebar>
             </div>
              <!-- routes will be rendered here -->
-             <div>
+             <div *ngIf = "isToken">
                 <router-outlet></router-outlet>
              </div>
         </main>

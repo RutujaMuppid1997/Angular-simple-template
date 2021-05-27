@@ -16,6 +16,7 @@ const swal = require("sweetalert");
 export class AppComponent implements OnInit {
 
   isToken:boolean = false;
+  url: any;
   constructor(private http: HttpClient, public loaderService: LoaderService,
     private httpGenericRouteSerivce: HttpGenericService,
   ) {
@@ -41,11 +42,12 @@ export class AppComponent implements OnInit {
       .pipe(first())
       .subscribe((data: any) => {
         console.log(data)
-        window.open(data.url);
+        this.url = data.url;
+        window.open(data.url,'_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
         let interval =setInterval(() => {
           this.httpGenericRouteSerivce
             .fetchAll('http://localhost:8000/checkCallBack')
-            .pipe(first())
+            .pipe(first()) 
             .subscribe((data: any) => {
               if (data) {
                 this.httpGenericRouteSerivce
@@ -53,6 +55,7 @@ export class AppComponent implements OnInit {
                   .pipe(first())
                   .subscribe((data: any) => {
                      this.isToken = true;
+                     window.close();
                      localStorage.setItem('auth',data.tokenDetails.token.access_token)
                   });
                   clearInterval(interval);
