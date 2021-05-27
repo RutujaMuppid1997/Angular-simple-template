@@ -15,6 +15,7 @@ const swal = require("sweetalert");
 })
 export class AppComponent implements OnInit {
 
+  isToken:boolean = false;
   constructor(private http: HttpClient, public loaderService: LoaderService,
     private httpGenericRouteSerivce: HttpGenericService,
   ) {
@@ -51,6 +52,7 @@ export class AppComponent implements OnInit {
                   .fetchAll('http://localhost:8000/retrieveToken')
                   .pipe(first())
                   .subscribe((data: any) => {
+                     this.isToken = true;
                      localStorage.setItem('auth',data.tokenDetails.token.access_token)
                   });
                   clearInterval(interval);
