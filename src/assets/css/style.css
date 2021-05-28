@@ -2185,3 +2185,24 @@ select {
   animation: spinner-border .75s linear infinite;
   color:#4CAF50 !important
 }
+
+.p-fluid .p-button-icon-only {
+  width: 1.357rem !important;
+}
+
+.p-inputnumber-buttons-stacked .p-inputnumber-button-group {
+  display: flex;
+  flex-direction: column;
+  padding: 5px !important;
+}
+
+.p-link {
+  text-align: left;
+  background-color: #e9ecef !important;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}

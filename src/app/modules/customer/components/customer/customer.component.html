@@ -1,6 +1,6 @@
 <div class="desk-wrap">
-<h3>Customer Details</h3>
-<p-table [value]="products" [paginator]="true" [rows]="4">
+    <h3>Customer Details</h3>
+    <!-- <p-table [value]="products" [paginator]="true" [rows]="4">
     <ng-template pTemplate="header">
         <tr>
             <th>Display Name</th>
@@ -23,8 +23,68 @@
             </td>
         </tr>
     </ng-template>
-</p-table>
+</p-table> -->
 
-  
+    <div class="card" *ngIf="products">
+        <p-table #dt [value]="products" dataKey="id" [rows]="3" 
+            [paginator]="true"
+            [globalFilterFields]="['DisplayName','GSTRegistrationType','CurrencyRef.value','BillWithParent','Balance']">
+           <!-- <ng-template pTemplate="caption">
+                <div class="p-d-flex">
+                    <span class="p-input-icon-left p-ml-auto" style="float: right !important;"  >
+                         <i class="pi pi-search"></i> 
+                        <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
+                            placeholder="Search keyword" />
+                    </span>
+                </div>
+            </ng-template>  -->
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Display Name</th>
+                    <th>GST Registration Type</th>
+                    <th>Currency Ref</th>
+                    <th>Bill With Parent</th>
+                    <th>Balance</th>
+                    <th style="width:8rem">Get Invoices</th>
+                </tr>
+                <tr>
+                    <th>
+                        <p-columnFilter type="text" field="DisplayName"></p-columnFilter>
+                    </th>
+                    <th>
+                        <p-columnFilter type="text" field="GSTRegistrationType"></p-columnFilter>
+                    </th>
+                    <th>
+                        <p-columnFilter type="text" field="CurrencyRef.value"></p-columnFilter>
+                    </th>
+                    <th>
+                        <p-columnFilter type="text" field="BillWithParent"></p-columnFilter>
+                    </th>
+                    <th>
+                        <p-columnFilter type="numeric" field="Balance"></p-columnFilter>
+                    </th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-customer>
+                <tr>
+                    <td>{{customer.DisplayName}}</td>
+                    <td>{{customer.GSTRegistrationType}}</td>
+                    <td>{{customer.CurrencyRef.value}}{{customer.CurrencyRef.name}}</td>
+                    <td>{{customer.BillWithParent}}</td>
+                    <td>{{customer.Balance}}</td>
+                    <td>
+                        <img  width="30"  height="40" style="cursor: pointer;" (click)="getInvoice(customer)" title="invoice" src="assets/images/invoice.png">
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="6">No customers found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+
 </div>
-

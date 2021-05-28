@@ -181,6 +181,7 @@
     background-color: #009933;
     color: white;
     border: none;
+    min-width: 100px;
   }
   .center {
     position: fixed;

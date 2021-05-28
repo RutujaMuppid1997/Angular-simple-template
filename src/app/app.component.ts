@@ -51,11 +51,14 @@ export class AppComponent implements OnInit {
         console.log(data)
         this.url = data.url;
         this.myWindow =window.open(data.url,'_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
+        this.loaderService.show();
         let interval =setInterval(() => {
+          this.loaderService.show();
           this.httpGenericRouteSerivce
             .fetchAll('http://localhost:8000/checkCallBack')
             .pipe(first()) 
             .subscribe((data: any) => {
+              this.loaderService.show();
               if (data) {
                 this.httpGenericRouteSerivce
                   .fetchAll('http://localhost:8000/retrieveToken')
@@ -64,7 +67,7 @@ export class AppComponent implements OnInit {
                      this.isToken = true;
                      this.myWindow.close();
                      localStorage.setItem('auth',data.tokenDetails.token.access_token);
-                     
+                     this.loaderService.hide();
                   });
                   clearInterval(interval);
               }
