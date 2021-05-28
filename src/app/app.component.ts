@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
 
   isToken:boolean = false;
   url: any;
+  myWindow: any;
   constructor(private http: HttpClient, public loaderService: LoaderService,
     private httpGenericRouteSerivce: HttpGenericService,
   ) {
@@ -49,7 +50,7 @@ export class AppComponent implements OnInit {
       .subscribe((data: any) => {
         console.log(data)
         this.url = data.url;
-        window.open(data.url,'_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
+        this.myWindow =window.open(data.url,'_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
         let interval =setInterval(() => {
           this.httpGenericRouteSerivce
             .fetchAll('http://localhost:8000/checkCallBack')
@@ -61,7 +62,7 @@ export class AppComponent implements OnInit {
                   .pipe(first())
                   .subscribe((data: any) => {
                      this.isToken = true;
-                     window.close();
+                     this.myWindow.close();
                      localStorage.setItem('auth',data.tokenDetails.token.access_token);
                      
                   });
