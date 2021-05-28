@@ -2173,3 +2173,15 @@ select {
   border: none !important; 
   border-radius: none !important;
 }
+
+.spinner-border {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  vertical-align: text-bottom;
+  border: 0.25em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-border .75s linear infinite;
+  color:#4CAF50 !important
+}
