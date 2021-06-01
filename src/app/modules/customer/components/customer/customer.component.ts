@@ -12,7 +12,7 @@ import { HttpGenericService } from 'src/app/services/http-services/http-genric.s
 })
 export class CustomerComponent implements OnInit {
   products:any=[];
-
+  searchText:any = "";
   constructor(private http: HttpClient, private httpGenericRouteSerivce: HttpGenericService,
     public loaderService: LoaderService , 
     public route:Router) {
