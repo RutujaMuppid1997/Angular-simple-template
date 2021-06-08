@@ -5,9 +5,10 @@ import { CustomerRoutingModule } from './customer-routing.module';
 import { TableModule } from 'primeng/table';
 import { InvoicesComponent } from './components/invoices/invoices.component';
 import { RouterModule } from '@angular/router';
+import { TaxCalculationComponent } from './components/tax-calculation/tax-calculation.component';
 
 @NgModule({
-  declarations: [CustomerComponent, InvoicesComponent],
+  declarations: [CustomerComponent, InvoicesComponent, TaxCalculationComponent],
   imports: [
     CommonModule,
     CustomerRoutingModule,

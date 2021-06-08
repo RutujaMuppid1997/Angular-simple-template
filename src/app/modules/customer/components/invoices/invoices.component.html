@@ -51,51 +51,56 @@
                                  >
                         </div>
                     </div>
-                </div>
+                </div> 
             </ng-template> 
             <ng-template pTemplate="header">
                 <tr>
-                <th style="width:10rem">Date</th> 
-                <th style="width:11rem">Number</th>
-                <th style="width:10rem">Due Date</th>
+                <!-- <th style="width:10rem">Date</th>  -->
+                <th style="width:15rem">Doc Number</th>
+                <th style="width:15rem">Due Date</th>
                 <th style="width:13rem">Balance</th>
                 <th style="width:13rem">Total Before</th>
-                <th style="width:13rem">Tax</th>
+                <th style="width:15rem">Tax</th>
+                <th style="width:8rem">Calculate Tax</th>
                 </tr>
                 <tr>
-                    <th style="width:10rem"> 
-                        <p-columnFilter type="text" field="TxnDate"></p-columnFilter>
+                    <!-- <th style="width:20rem;text-align: center;"> 
+                        <p-columnFilter  type="date" field="TxnDate"></p-columnFilter>
+                    </th> -->
+                    <th style="width:11rem;text-align: center;">
+                        <p-columnFilter type="numeric" field="DocNumber"></p-columnFilter>
                     </th>
-                    <th style="width:11rem">
-                        <p-columnFilter type="text" field="DocNumber"></p-columnFilter>
-                    </th>
-                    <th style="width:10rem">
+                    <th style="width:20rem;text-align: center;">
                         <p-columnFilter type="date" field="DueDate"></p-columnFilter>
                     </th>
-                    <th style="width:13rem"> 
+                    <th style="width:13rem;text-align: center;"> 
                         <p-columnFilter type="numeric" field="Balance"></p-columnFilter>
                     </th>
-                    <th style="width:13rem">
+                    <th style="width:13rem;text-align: center;">
                         <p-columnFilter type="numeric" field="TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable"></p-columnFilter>
                     </th>
-                    <th style="width:13rem">
+                    <th style="width:13rem ;text-align: center;">
                         <p-columnFilter type="numeric" field="TxnTaxDetail.TotalTax"></p-columnFilter>
                     </th>
+                    <th></th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-customer>
                 <tr>
-                    <td>{{customer.TxnDate}}</td>
+                    <!-- <td>{{customer.TxnDate}}</td> -->
                     <td>{{customer.DocNumber}}</td>
                     <td>{{customer.DueDate}}</td>
                     <td>{{customer.Balance}}</td> 
                     <td>{{customer.TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable}}</td>
                     <td>{{customer.TxnTaxDetail.TotalTax}}</td>
+                    <td style="text-align: center;" >
+                        <img  width="30"  height="30" style="cursor: pointer;" (click)="getTaxCalculated(customer)"  title="tax calulation" src="assets/images/tax.png">
+                    </td>
                 </tr>
             </ng-template>
             <ng-template pTemplate="emptymessage">
                 <tr>
-                    <td colspan="7">No invoice found.</td>
+                    <td colspan="6">No invoice found.</td>
                 </tr>
             </ng-template>
         </p-table>

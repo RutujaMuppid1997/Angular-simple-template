@@ -23,6 +23,7 @@ export class InvoicesComponent implements OnInit {
       activeRoute.queryParams
       .subscribe((params) => {
         this.id = params.id;
+        this.id = this.id.toString()
       });
   }
  
@@ -43,7 +44,7 @@ export class InvoicesComponent implements OnInit {
 
   getInvoices(){
     this.httpGenericRouteSerivce
-    .fetchAll("company/4620816365164524170"+ '/query/' + '?query=select%20%2a%20from%20invoice&minorversion=57')
+    .fetchAll("company/4620816365164524170"+ '/query/' + '?query=SELECT%20*%20FROM%20Invoice%20WHERE%20CustomerRef%20%3D%20'+"'"+ this.id+"'"+ '&minorversion=57')
     .pipe(first())
     .subscribe((data: any) => {
      console.log(data) 
@@ -51,17 +52,22 @@ export class InvoicesComponent implements OnInit {
      {
        let temp:any =[];
        this.products= data.QueryResponse.Invoice;
-       this.products.forEach((element: any) => {
-         if(element.CustomerRef.value === this.id)
-         {
-           temp.push(element);
-         }
-       });
-       this.products=temp;
+      //  this.products.forEach((element: any) => {
+      //    if(element.CustomerRef.value === this.id)
+      //    {
+      //      temp.push(element);
+      //    }
+      //  });
+      //  this.products=temp;
      }
 
     });
 
+  }
+
+  getTaxCalculated(customer:any){
+    console.log(customer)
+    this.route.navigateByUrl('customer/tax?id=' + customer.Id);
   }
 
  

@@ -2231,3 +2231,7 @@ select {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
 }
+
+.p-calendar .p-datepicker {
+  min-width: 350px !important;
+}
