@@ -66,9 +66,9 @@ export class InvoicesComponent implements OnInit {
 
   }
 
-  getTaxCalculated(customer:any){
-    console.log(customer)
-    this.route.navigateByUrl('customer/tax?id=' + customer.Id);
+  getTaxCalculated(invoice:any){
+    console.log(invoice)
+    this.route.navigateByUrl('customer/tax?id=' + invoice.Id);
   }
 
  

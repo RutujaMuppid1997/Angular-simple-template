@@ -1,0 +1,269 @@
+.load-inn-bar {
+  background: #ddab3d !important;
+  border-radius: 50px;
+  height: 6px;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: loader 1s linear;
+}
+
+.header {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  background: rgba(168, 168, 168, 0.2);
+  backdrop-filter: blur(67.957px);
+}
+
+.tittle {
+  position: static;
+  height: 28px;
+  left: -3px;
+  right: -3px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 22px;
+  /* identical to box height, or 129% */
+
+  text-align: center;
+  letter-spacing: -0.408px;
+
+  /* System Background / Light / Primary */
+
+  color: #ffffff;
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 10px 0px;
+}
+
+
+.temp h5 {
+  font-size: 12px;
+  line-height: 19px;
+  margin-bottom: 5px;
+  font-family: SFProText-Semibold;
+  color: #ee5c51;
+}
+
+.temp h2 {
+  font-size: 42px;
+  line-height: 30px;
+  color: black;
+  font-family: SFProDisplay-Thin;
+}
+
+
+
+
+
+.vl {
+  /* position: absolute; */
+  width: 3px;
+  height: 70px;
+  left: 16px;
+  top: 93px;
+
+  background: #b54896;
+  border-radius: 1px;
+}
+
+
+
+div.ex3 {
+  overflow-y: scroll;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.limit {
+  width: 50px;
+}
+
+@media screen and (max-width: 430px) {
+  .displaybox {
+    display: none;
+  }
+  .margin {
+    margin-left: 0rem !important;
+  }
+
+  .position {
+    top: 0;
+    bottom: 0;
+    position: relative !important;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .position {
+    top: 0;
+    bottom: 0;
+    position: fixed;
+  }
+}
+
+@media screen and (min-width: 440px) {
+  .display {
+    display: none;
+  }
+
+  .margin {
+    margin-left: 2.5rem !important;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.bg {
+  /* background: url("../../../../assets/images/bg.png") no-repeat center fixed; */
+  background-size: cover;
+}
+ 
+.content {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  overflow-y: scroll;
+}
+
+.smallicon {
+  border-radius: 5px;
+}
+
+.stake {
+  margin: 15%;
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(27.1828px);
+  /* Note: backdrop-filter has minimal browser support */
+  padding: 10px 15px;
+  border-radius: 24px;
+  height: 60%;
+  width: 60%;
+}
+
+.button{
+  padding: 5px;
+  border-color: green;
+  border-radius: 9px;
+  background-color: #009933;
+  color: white;
+  border: none;
+  min-width: 100px;
+}
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 30em;
+  height: 18em;
+  margin-top: -9em; /*set to a negative number 1/2 of your height*/
+  margin-left: -15em; /*set to a negative number 1/2 of your width*/
+}
+
+.stake ul li {
+  list-style: none;
+  width: 100%;
+  max-width: 34.33%;
+  flex: 50 !important;
+  padding: 0px 15px;
+  margin-bottom: 20px;
+}
+
+.stake h5 {
+  font-size: 13px;
+  color: #ffffff;
+  font-family: Roboto-Bold;
+  text-align: center;
+  margin-top: 5px;
+  margin-left: 12px;
+}
+.desk-wrap {
+  padding: 40px 30px 10px;
+}
+.pd-r7{
+  padding-right: 7px;
+}
+.pd-l7{
+  padding-left: 7px;
+}
+.l-d-icon{
+  width: 30px;
+  height: 30px;
+  background: #CCCCCC;
+  border-radius: 4px;
+  display: block;
+}
+ .licon{
+   margin-top: -3px;
+ }
+.card-w{
+  width: 100%;
+}
+.ltitle{
+  font-size: 17px !important;
+  color: #ddab3d;
+  text-decoration: underline;
+}
+
+
+
+@media (max-width: 767px) {
+  
+  .desk-wrap{
+    padding: 30px 15px;
+  }
+  .shortcut-wrap{
+    padding: 20px 0px;
+  }
+}
+@media (min-width: 1200px) {
+   /* New changes */
+   .desk-wrap{
+      height: 100vh;
+      box-sizing: border-box;
+    }
+    .h100{
+      height: 100%;
+    }
+}
+@media (min-width: 1500px) {
+  /* New changes */
+  .desk-wrap{
+    height: 100vh;
+    box-sizing: border-box;
+  }
+
+}

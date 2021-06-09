@@ -1,1 +1,18 @@
-<p>tax-calculation works!</p>
+<div class="desk-wrap">
+    <div class="card col-6" *ngIf="invoice.length !== 0">
+        <div  class="card-body col-6" >
+            <h4 class="card-title">Invoice Details</h4>
+            <p *ngIf="invoice.DocNumber != undefined"><b>DocNumber:</b> {{invoice.DocNumber}}</p>
+                <p *ngIf="invoice.TxnDate != undefined"><b>TxnDate:</b> {{invoice.TxnDate}}</p>
+                <p *ngIf="invoice.CurrencyRef.value != undefined"><b>CurrencyRef:</b> {{invoice.CurrencyRef.value}}</p>
+                <p *ngIf="invoice.Balance != undefined"><b>Balance:</b> {{invoice.Balance}}</p>
+                <p *ngIf="invoice.TxnTaxDetail.TotalTax != undefined"><b>Tax Amount:</b> {{invoice.TxnTaxDetail.TotalTax}}</p>
+                <p *ngIf="invoice.TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable != undefined"><b>Net Amount Taxable:</b> {{invoice.TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable}}</p>
+        
+            </div>
+    </div>
+    <button type="button" class="p-mr-2 button float-right mt-4" (click)="back()">Back</button>
+
+</div>
+    
+     

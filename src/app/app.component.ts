@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     private httpGenericRouteSerivce: HttpGenericService,
   ) {
     this.httpGenericRouteSerivce
-    .fetchAll( API.nodeEndPoint +'/checkCallBack')
+    .fetchAll( API.nodeEndPoint +'checkCallBack')
     .pipe(first())
     .subscribe((data: any) => {
       if(!data)
