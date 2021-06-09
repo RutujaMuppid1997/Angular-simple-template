@@ -24,7 +24,7 @@
     </ng-template>
 </p-table> -->
     <div class="card" *ngIf="products">
-        <p-table #dt [value]="products" dataKey="id" [rows]="3" 
+        <p-table #dt [value]="products" dataKey="id" [rows]="10" 
             [paginator]="true"
             [globalFilterFields]="['DisplayName','GSTRegistrationType','CurrencyRef.value','BillWithParent','Balance']">
             <ng-template pTemplate="caption">

@@ -33,7 +33,7 @@
         </ng-template>
     </p-table> -->
     <div class="card" *ngIf="products">
-        <p-table #dt [value]="products" dataKey="id" [rows]="3" 
+        <p-table #dt [value]="products" dataKey="id" [rows]="10" 
             [paginator]="true"
             [globalFilterFields]="['TxnDate','DocNumber','DueDate','Balance','TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable','TxnTaxDetail.TotalTax']">
            <ng-template pTemplate="caption">
@@ -105,7 +105,7 @@
             </ng-template>
         </p-table>
     </div>
-    <button type="button" class="p-mr-2 button float-right mt-4" [routerLink]="['/customer']" >Back</button>
+    <button type="button" class="p-mr-2 button mb-3 float-right mt-4" [routerLink]="['/customer']" >Back</button>
 
 </div>
     

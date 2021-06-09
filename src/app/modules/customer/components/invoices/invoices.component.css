@@ -252,7 +252,7 @@
   @media (min-width: 1200px) {
      /* New changes */
      .desk-wrap{
-        height: 100vh;
+        /* height: 100vh; */
         box-sizing: border-box;
       }
       .h100{
@@ -262,7 +262,7 @@
   @media (min-width: 1500px) {
     /* New changes */
     .desk-wrap{
-      height: 100vh;
+      /* height: 100vh; */
       box-sizing: border-box;
     }
   

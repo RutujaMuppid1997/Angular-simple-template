@@ -373,7 +373,7 @@ div.ex3 {
 @media (min-width: 1200px) {
    /* New changes */
    .desk-wrap{
-      height: 100vh;
+      /* height: 100vh; */
       box-sizing: border-box;
     }
     .h100{
@@ -403,7 +403,7 @@ div.ex3 {
   
   /* New changes */
   .desk-wrap{
-    height: 100vh;
+    /* height: 100vh; */
     box-sizing: border-box;
   }
   .h100{
