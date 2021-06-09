@@ -6,7 +6,7 @@ import { HttpGenericService } from "../app/services/http-services/http-genric.se
 import { first } from 'rxjs/operators';
 declare var require: any
 const swal = require("sweetalert");
-
+import  {API} from "../app/const/api"
 
 @Component({
   selector: 'app-root',
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     private httpGenericRouteSerivce: HttpGenericService,
   ) {
     this.httpGenericRouteSerivce
-    .fetchAll('http://localhost:8000/checkCallBack')
+    .fetchAll( API.nodeEndPoint +'/checkCallBack')
     .pipe(first())
     .subscribe((data: any) => {
       if(!data)
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
 
   initializeData(){
     this.httpGenericRouteSerivce
-      .fetchAll('http://localhost:8000/authUri')
+      .fetchAll(API.nodeEndPoint +'authUri')
       .pipe(first())
       .subscribe((data: any) => {
         console.log(data)
@@ -55,13 +55,13 @@ export class AppComponent implements OnInit {
         let interval =setInterval(() => {
           this.loaderService.show();
           this.httpGenericRouteSerivce
-            .fetchAll('http://localhost:8000/checkCallBack')
+            .fetchAll(API.nodeEndPoint +'checkCallBack')
             .pipe(first()) 
             .subscribe((data: any) => {
               this.loaderService.show();
               if (data) {
                 this.httpGenericRouteSerivce
-                  .fetchAll('http://localhost:8000/retrieveToken')
+                  .fetchAll(API.nodeEndPoint +'retrieveToken')
                   .pipe(first())
                   .subscribe((data: any) => {
                      this.isToken = true;

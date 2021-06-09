@@ -3,6 +3,7 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/c
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { utf8Encode } from '@angular/compiler/src/util';
+import { API } from 'src/app/const/api';
 /**
  * Prefixes all requests not starting with `http[s]` with `environment.serverUrl`.
  */
@@ -15,7 +16,7 @@ export class ApiHeaderInterceptorApiHeaderInterceptor implements HttpInterceptor
 	}
 	intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-		if (request.url.includes("http://localhost:8000/")) {
+		if (request.url.includes(API.nodeEndPoint)) {
 			let token = "abc"
 			if (token) {
 				// request = request.clone({
