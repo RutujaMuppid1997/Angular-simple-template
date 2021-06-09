@@ -44,6 +44,18 @@ export class ApiHeaderInterceptorApiHeaderInterceptor implements HttpInterceptor
 				request = request.clone({ url: request.url });
 			} 
 		}
+
+		if (request.url.includes("api/v2/")) {
+			if (true) {
+				request = request.clone({
+					setHeaders: {
+						Authorization: 'Basic ' + btoa(environment.username + ':' + environment.password),
+						responseType: "JSON",
+					}, url: environment.endPoint2 + request.url,
+				});
+				request = request.clone({ url: request.url });
+			} 
+		}
 		return next.handle(request);
 	}
 }
