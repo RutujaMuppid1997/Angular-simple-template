@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { LoaderService } from 'src/app/common/loader/service/loader.service';
+import { API } from 'src/app/const/api';
 import { HttpGenericService } from 'src/app/services/http-services/http-genric.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class CustomerComponent implements OnInit {
  
   ngOnInit() {
     this.httpGenericRouteSerivce
-    .fetchAll("company/4620816365164524170"+ '/query/' + '?query=select%20%2a%20from%20Customer&minorversion=57')
+    .fetchAll("company/"+ API.quickbookCompanyId + '/query/' + '?query=select%20%2a%20from%20Customer&minorversion=57')
     .pipe(first())
     .subscribe((data: any) => {
      console.log(data)

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter, first } from 'rxjs/operators';
 import { LoaderService } from 'src/app/common/loader/service/loader.service';
+import { API } from 'src/app/const/api';
 import { HttpGenericService } from 'src/app/services/http-services/http-genric.service';
 
 @Component({
@@ -29,7 +30,7 @@ export class InvoicesComponent implements OnInit {
  
   ngOnInit() {
     this.httpGenericRouteSerivce
-    .fetchAll("company/4620816365164524170"+ '/customer/'+ this.id + '?')
+    .fetchAll("company/"+ API.quickbookCompanyId+ '/customer/'+ this.id + '?')
     .pipe(first())
     .subscribe((data: any) => {
      console.log(data) 
@@ -44,7 +45,7 @@ export class InvoicesComponent implements OnInit {
 
   getInvoices(){
     this.httpGenericRouteSerivce
-    .fetchAll("company/4620816365164524170"+ '/query/' + '?query=SELECT%20*%20FROM%20Invoice%20WHERE%20CustomerRef%20%3D%20'+"'"+ this.id+"'"+ '&minorversion=57')
+    .fetchAll("company/"+ API.quickbookCompanyId+ '/query/' + '?query=SELECT%20*%20FROM%20Invoice%20WHERE%20CustomerRef%20%3D%20'+"'"+ this.id+"'"+ '&minorversion=57')
     .pipe(first())
     .subscribe((data: any) => {
      console.log(data) 
