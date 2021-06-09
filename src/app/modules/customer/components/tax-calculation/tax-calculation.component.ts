@@ -18,6 +18,8 @@ export class TaxCalculationComponent implements OnInit {
   id: any;
   customer: any =[];
   invoice: any = [];
+  taxOutput: any = [];
+  showTax: boolean = false;
 
   constructor(private http: HttpClient, private httpGenericRouteSerivce: HttpGenericService,
     public loaderService: LoaderService ,private _location: Location, 
@@ -48,6 +50,54 @@ export class TaxCalculationComponent implements OnInit {
     this._location.back();
   }
 
+  getAvaTax(){
+    let lines: { number: any; quantity: any; amount: any; }[] = [];
+    this.invoice.Line.forEach((element:any) => {
+      if(element.DetailType === "SalesItemLineDetail")
+      {
+        let temp = {
+          "number": element.Id,
+          "quantity": element.SalesItemLineDetail.Qty,
+          "amount": element.Amount
+         }
+         lines.push(temp)
+      }
+    });
+
+    let obj={
+      "lines": lines,
+      "type": "SalesInvoice",
+      "companyCode": "DEFAULT",
+      "date": this.invoice.TxnDate,
+      "customerCode": this.invoice.CurrencyRef.value,
+      // "purchaseOrderNo": "2021-6-3",
+      "addresses": {
+        "singleLocation": {
+          "line1": this.invoice.BillAddr.Line1,
+          "city": this.invoice.BillAddr.City,
+          "region": this.invoice.BillAddr.CountrySubDivisionCode,
+          "country": this.invoice.BillAddr.Country,
+          "postalCode": this.invoice.BillAddr.PostalCode
+        }
+      },
+      "commit": true,
+      "currencyCode": this.invoice.CurrencyRef.value,
+      "description": this.invoice.CurrencyRef.value,
+    }
+
+    this.httpGenericRouteSerivce
+    .postData(API.nodeEndPoint+"avalara/tax",obj)
+    .pipe(first())
+    .subscribe((data: any) => {
+     console.log("Tax Output",data) 
+     if(data.id >= 0)
+     {
+       this.taxOutput = data.summary;
+       this.showTax = true;
+     }
+    });
+
+  }
   
 
  

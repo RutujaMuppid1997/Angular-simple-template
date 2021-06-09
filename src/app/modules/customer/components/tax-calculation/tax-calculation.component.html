@@ -1,17 +1,59 @@
 <div class="desk-wrap">
-    <div class="card col-6" *ngIf="invoice.length !== 0">
-        <div  class="card-body col-6" >
-            <h4 class="card-title">Invoice Details</h4>
-            <p *ngIf="invoice.DocNumber != undefined"><b>DocNumber:</b> {{invoice.DocNumber}}</p>
-                <p *ngIf="invoice.TxnDate != undefined"><b>TxnDate:</b> {{invoice.TxnDate}}</p>
-                <p *ngIf="invoice.CurrencyRef.value != undefined"><b>CurrencyRef:</b> {{invoice.CurrencyRef.value}}</p>
-                <p *ngIf="invoice.Balance != undefined"><b>Balance:</b> {{invoice.Balance}}</p>
-                <p *ngIf="invoice.TxnTaxDetail.TotalTax != undefined"><b>Tax Amount:</b> {{invoice.TxnTaxDetail.TotalTax}}</p>
-                <p *ngIf="invoice.TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable != undefined"><b>Net Amount Taxable:</b> {{invoice.TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable}}</p>
-        
+    <h6 class="card-title">Invoice Details</h6>
+    <div class="card col-12" *ngIf="invoice.length !== 0">
+        <div class="row card-body ">
+            <div  class="col-6" >
+                <p *ngIf="invoice.CustomerRef.name != undefined"><b>Customer Name:</b> {{invoice.CustomerRef.name}}</p>
+                <p *ngIf="invoice.DocNumber != undefined"><b>DocNumber:</b> {{invoice.DocNumber}}</p>
+                    <p *ngIf="invoice.TxnDate != undefined"><b>TxnDate:</b> {{invoice.TxnDate}}</p>
+                    <p *ngIf="invoice.DueDate != undefined"><b>Due Date:</b> {{invoice.DueDate}}</p>
+                    <p *ngIf="invoice.CurrencyRef.value != undefined"><b>CurrencyRef:</b> {{invoice.CurrencyRef.value}}</p>
+                    <!-- <p *ngIf="invoice.Balance != undefined"><b>Balance:</b> {{invoice.Balance}}</p> -->
+                    <!-- <p *ngIf="invoice.TxnTaxDetail.TotalTax != undefined"><b>Tax Amount:</b> {{invoice.TxnTaxDetail.TotalTax}}</p> -->
+                    <p *ngIf="invoice.TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable != undefined"><b>Net Amount Taxable:</b> {{invoice.TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable}}</p>
             </div>
+            <div  class="col-6" >
+                <p *ngIf="invoice.BillAddr != undefined"><b>Billing Address:</b> <br>{{invoice.BillAddr.Line1}} ,<br>{{invoice.BillAddr.City}},{{invoice.BillAddr.CountrySubDivisionCode}},{{invoice.BillAddr.Country}}</p>
+                <p *ngIf="invoice.BillAddr != undefined"><b>Postal Code:</b> <br>{{invoice.BillAddr.PostalCode}}</p>
+            </div>
+        </div> 
+        
     </div>
-    <button type="button" class="p-mr-2 button float-right mt-4" (click)="back()">Back</button>
+    <div class="mt-4" *ngIf="showTax">
+        <p-table  [value]="taxOutput"> 
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Country</th> 
+                    <th>Tax Authority Type</th>
+                    <th>Tax Type</th>
+                    <th>Tax Name</th>
+                    <th>RateType</th>
+                    <th>Taxable</th>
+                    <th>Tax</th>
+                    <th>Tax Calculated</th>
+                    <th>Non Taxable</th>
+                    <th>exemption</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td>{{product.country}}</td>
+                    <td>{{product.taxAuthorityType}}</td>
+                    <td>{{product.taxType}}</td>
+                    <td>{{product.taxName}}</td>
+                    <td>{{product.rateType}}</td> 
+                    <td>{{product.taxable}}</td>
+                    <td>{{product.tax}}</td>
+                    <td>{{product.taxCalculated}}</td>
+                    <td>{{product.nonTaxable}}</td>
+                    <td>{{product.exemption}}</td>
+                </tr>
+            </ng-template>
+          </p-table> 
+    </div>
+    <button type="button" class="p-mr-2 button float-right mt-4 ml-3 mb-3" (click)="back()">Back</button>
+    <button type="button" class="p-mr-2 button float-right mt-4 col-1 ml-3 mb-3" (click)="getAvaTax()">Calculate Tax</button>
+    <button type="button" class="p-mr-2 button float-right mt-4 col-2 mb-3" *ngIf="showTax">Post to Blockchain</button>
 
 </div>
     
