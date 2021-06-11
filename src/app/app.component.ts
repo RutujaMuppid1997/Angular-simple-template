@@ -37,6 +37,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
+
   }
 
   signIn(){
@@ -67,6 +68,7 @@ export class AppComponent implements OnInit {
                      this.isToken = true;
                      this.myWindow.close();
                      localStorage.setItem('auth',data.tokenDetails.token.access_token);
+                     this.startRefreshTokenTimer();
                      this.loaderService.hide();
                   });
                   clearInterval(interval);
@@ -75,6 +77,21 @@ export class AppComponent implements OnInit {
         }, 10000);
       });
 
+  }
+
+
+  startRefreshTokenTimer(){
+    let interval = setInterval(() => {
+      this.httpGenericRouteSerivce
+      .fetchAll(API.nodeEndPoint +'refreshAccessToken')
+      .pipe(first())
+      .subscribe((data: any) => {
+         this.isToken = true;
+         localStorage.setItem('auth',data.token.access_token);
+         this.loaderService.hide();
+      });
+      // alert("i m refreshing")
+    }, 2700000); //45 mins refresh 2700000
   }
 }
 
