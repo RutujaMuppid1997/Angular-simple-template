@@ -73,11 +73,11 @@ export class TaxCalculationComponent implements OnInit {
       // "purchaseOrderNo": "2021-6-3",
       "addresses": {
         "singleLocation": {
-          "line1": this.invoice.BillAddr.Line1,
-          "city": this.invoice.BillAddr.City,
-          "region": this.invoice.BillAddr.CountrySubDivisionCode,
-          "country": this.invoice.BillAddr.Country,
-          "postalCode": this.invoice.BillAddr.PostalCode
+          "line1": (this.invoice.BillAddr !== undefined)? this.invoice.BillAddr.Line1: "",
+          "city": (this.invoice.BillAddr !== undefined)? this.invoice.BillAddr.City:"",
+          "region": (this.invoice.BillAddr) !== undefined?this.invoice.BillAddr.CountrySubDivisionCode :"",
+          "country": (this.invoice.BillAddr !== undefined)?this.invoice.BillAddr.Country :"",
+          "postalCode": (this.invoice.BillAddr !== undefined)?  this.invoice.BillAddr.PostalCode:""
         }
       },
       "commit": true,
