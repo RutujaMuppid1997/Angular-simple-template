@@ -51,10 +51,34 @@
             </ng-template>
           </p-table> 
     </div>
+    <div class="mt-4" *ngIf="blockchainShow">
+        <p-table  [value]="web3Output"> 
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 50rem;">transactionHash</th> 
+                    <th>transactionIndex</th>
+                    <th>status</th>
+                    <th>blockNumber</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td>
+                        <a target="_blank"
+                            href="https://rinkeby.etherscan.io//tx/{{product.transactionHash}}">
+                            {{product.transactionHash}}</a>
+                    </td>
+                    <td>{{product.transactionIndex}}</td>
+                    <td>{{product.status}}</td>
+                    <td>{{product.blockNumber}}</td>
+                </tr>
+            </ng-template>
+          </p-table> 
+    </div>
     <button type="button" class="p-mr-2 button float-right mt-4 ml-3 mb-3" (click)="back()">Back</button>
     <button type="button" class="p-mr-2 button float-right mt-4 col-1 ml-3 mb-3" (click)="getAvaTax()">Calculate Tax</button>
-    <button type="button" class="p-mr-2 button float-right mt-4 col-2 mb-3" *ngIf="showTax">Post to Blockchain</button>
+    <button type="button" class="p-mr-2 button float-right mt-4 col-2 mb-3" *ngIf="showButton" (click)="postTax()">Post to Blockchain</button>
 
-</div>
+</div> 
     
      

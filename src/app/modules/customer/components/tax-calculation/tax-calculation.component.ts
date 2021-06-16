@@ -20,6 +20,11 @@ export class TaxCalculationComponent implements OnInit {
   invoice: any = [];
   taxOutput: any = [];
   showTax: boolean = false;
+  showButton: boolean = false;
+
+  web3Input: any;
+  web3Output: any = [];
+  blockchainShow: boolean = false;
 
   constructor(private http: HttpClient, private httpGenericRouteSerivce: HttpGenericService,
     public loaderService: LoaderService ,private _location: Location, 
@@ -42,6 +47,7 @@ export class TaxCalculationComponent implements OnInit {
      {
        let temp:any =[];
        this.invoice= data.Invoice;
+       this.readTax();
      }
     });
   }
@@ -92,13 +98,68 @@ export class TaxCalculationComponent implements OnInit {
      console.log("Tax Output",data) 
      if(data.id >= 0)
      {
+      this.web3Input = data;
        this.taxOutput = data.summary;
        this.showTax = true;
+       this.showButton = true;
      }
     });
 
   }
+
+  postTax(){
+    if(this.taxOutput !== undefined || this.taxOutput !== null)
+    {
+      let obj = {
+        id:this.invoice.Id,
+        taxDetails:[{
+          id:this.web3Input.id,
+          code:this.web3Input.code,
+          companyId:this.web3Input.companyId,
+          date:this.web3Input.date,
+          status:this.web3Input.status,
+          type:this.web3Input.type,
+          currencyCode:this.web3Input.currencyCode,
+          address:this.web3Input.addresses,
+          summary:this.web3Input.summary
+        }]
+      }
+      this.httpGenericRouteSerivce
+      .postData(API.web3EndPoint+"web3/write",obj)
+      .pipe(first())
+      .subscribe((data: any) => {
+       console.log("web3 Output",data) 
+       this.blockchainShow = true;
+       this.showButton = false;
+       this.web3Output[0] = data.data;
+       console.log(this.web3Output)
+      });
+    }
+    
+
+  }
   
+  readTax(){
+    let obj = {
+      "id": this.invoice.Id
+  }
+    this.httpGenericRouteSerivce
+    .postData(API.web3EndPoint+"web3/read",obj)
+    .pipe(first())
+    .subscribe((data: any) => {
+      if(data.message === "Success" && data.data.id !== 0)
+      {
+        this.taxOutput = data.data.taxDetails[0].summary;
+        this.showTax = true;
+        this.showButton = false;
+        console.log(this.web3Output)
+      }else if (data.data.id === 0)
+      {
+        return;
+      }
+      
+    });
+  }
 
  
 

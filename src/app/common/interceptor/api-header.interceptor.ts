@@ -56,6 +56,10 @@ export class ApiHeaderInterceptorApiHeaderInterceptor implements HttpInterceptor
 				request = request.clone({ url: request.url });
 			} 
 		}
+
+		if (request.url.includes(API.web3EndPoint)) {
+			request = request.clone({ url: request.url  });
+		}
 		return next.handle(request);
 	}
 }
