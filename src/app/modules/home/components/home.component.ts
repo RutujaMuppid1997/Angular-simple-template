@@ -35,9 +35,8 @@ export class HomeComponent implements OnInit {
  
 
   ngOnInit() {
-    let companyId=localStorage.getItem('companyID')
     this.httpGenericRouteSerivce
-    .fetchAll("company/" + companyId+ '/query/' + '?query=select%20%2a%20from%20CompanyInfo&minorversion=57')
+    .fetchAll(API.nodeEndPoint + "quickbook/getCompanyDetails")
     .pipe(first())
     .subscribe((data: any) => {
      console.log(data)
@@ -52,11 +51,11 @@ export class HomeComponent implements OnInit {
 
   
 
-  callApi() {
-    this.http.get('https://reqres.in/api/users?page=2')
-      .subscribe(data => {
-      })
-  }
+  // callApi() {
+  //   this.http.get('https://reqres.in/api/users?page=2')
+  //     .subscribe(data => {
+  //     })
+  // }
 
   visibleSidebar(){
     this.visibleSidebar1 = true;

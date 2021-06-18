@@ -38,9 +38,11 @@ export class TaxCalculationComponent implements OnInit {
   }
  
   ngOnInit() {
-    let companyId=localStorage.getItem('companyID')
+    let obj ={
+      id:this.id
+    }
     this.httpGenericRouteSerivce
-    .fetchAll("company/"+ companyId+ '/invoice/'+this.id+ '?&minorversion=57')
+    .postData(API.nodeEndPoint + "quickbook/getInvoicesById",obj)
     .pipe(first())
     .subscribe((data: any) => {
      console.log("invoice",data) 

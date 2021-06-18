@@ -29,9 +29,11 @@ export class InvoicesComponent implements OnInit {
   }
  
   ngOnInit() {
-    let companyId=localStorage.getItem('companyID')
+    let obj ={
+      id:this.id
+    }
     this.httpGenericRouteSerivce
-    .fetchAll("company/"+ companyId+ '/customer/'+ this.id + '?')
+    .postData(API.nodeEndPoint+"quickbook/getCustomerById",obj)
     .pipe(first())
     .subscribe((data: any) => {
      console.log(data) 
@@ -45,10 +47,11 @@ export class InvoicesComponent implements OnInit {
   }
 
   getInvoices(){
-    let companyId=localStorage.getItem('companyID')
+    let obj ={
+      id:this.id
+    }
     this.httpGenericRouteSerivce
-    .fetchAll("company/"+ companyId + '/query/' + '?query=SELECT%20*%20FROM%20Invoice%20WHERE%20CustomerRef%20%3D%20'+"'"+ this.id+"'"+ '&minorversion=57')
-    .pipe(first())
+    .postData(API.nodeEndPoint+"quickbook/getInvoicesOfCustomers",obj)    .pipe(first())
     .subscribe((data: any) => {
      console.log(data) 
      if(data.QueryResponse) 

@@ -1,7 +1,6 @@
 
 export var API ={
 
-nodeEndPoint:"http://localhost:5524/",
-quickbookCompanyId:localStorage.getItem('companyID'),
-web3EndPoint :"http://52.140.79.232:5522/api/v1.0/",
-}
+nodeEndPoint:"http://etstaging.centralindia.cloudapp.azure.com:5524/",
+web3EndPoint :"http://etstaging.centralindia.cloudapp.azure.com:5522/api/v1.0/",
+} 
