@@ -20,8 +20,9 @@ export class CustomerComponent implements OnInit {
   }
  
   ngOnInit() {
+    let companyId=localStorage.getItem('companyID')
     this.httpGenericRouteSerivce
-    .fetchAll("company/"+ API.quickbookCompanyId + '/query/' + '?query=select%20%2a%20from%20Customer&minorversion=57')
+    .fetchAll("company/"+ companyId + '/query/' + '?query=select%20%2a%20from%20Customer&minorversion=57')
     .pipe(first())
     .subscribe((data: any) => {
      console.log(data)

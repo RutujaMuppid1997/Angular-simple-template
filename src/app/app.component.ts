@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
         this.isToken = false;
       }else{
         this.isToken = true;
+        this.startRefreshTokenTimer();
       }
     });
     
@@ -68,6 +69,7 @@ export class AppComponent implements OnInit {
                      this.isToken = true;
                      this.myWindow.close();
                      localStorage.setItem('auth',data.tokenDetails.token.access_token);
+                     localStorage.setItem('companyID',data.tokenDetails.token.realmId);
                      this.startRefreshTokenTimer();
                      this.loaderService.hide();
                   });
@@ -82,7 +84,7 @@ export class AppComponent implements OnInit {
 
   startRefreshTokenTimer(){
     let interval = setInterval(() => {
-      this.httpGenericRouteSerivce
+      this.httpGenericRouteSerivce 
       .fetchAll(API.nodeEndPoint +'refreshAccessToken')
       .pipe(first())
       .subscribe((data: any) => {
