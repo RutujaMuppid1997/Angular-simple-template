@@ -21,18 +21,18 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient, public loaderService: LoaderService,
     private httpGenericRouteSerivce: HttpGenericService,
   ) {
-    this.httpGenericRouteSerivce
-    .fetchAll( API.nodeEndPoint +'checkCallBack')
-    .pipe(first())
-    .subscribe((data: any) => {
-      if(!data)
-      {
-        this.isToken = false;
-      }else{
-        this.isToken = true;
-        this.startRefreshTokenTimer();
-      }
-    });
+    // this.httpGenericRouteSerivce
+    // .fetchAll( API.nodeEndPoint +'checkCallBack')
+    // .pipe(first())
+    // .subscribe((data: any) => {
+    //   if(!data)
+    //   {
+    //     this.isToken = false;
+    //   }else{
+    //     this.isToken = true;
+    //     this.startRefreshTokenTimer();
+    //   }
+    // });
     
   }
 

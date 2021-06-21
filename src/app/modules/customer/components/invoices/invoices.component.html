@@ -6,105 +6,111 @@
         <p *ngIf="customer.Customer.Balance != undefined"><b>Balance:</b> {{customer.Customer.Balance}}</p>
     </div>
     
-     <!-- <p-table  [value]="products" [paginator]="true" [rows]="4"> 
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Date</th> 
-                <th>Type</th>
-                <th>Number</th>
-                <th>Due Date</th>
-                <th>Balance</th>
-                <th>Total Before</th>
-                <th>Tax</th>
 
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-product>
-            <tr>
-                <td>{{product.TxnDate}}</td>
-                <td>Invoice</td>
-                <td>{{product.DocNumber}}</td>
-                <td>{{product.DueDate}}</td>
-                <td>{{product.Balance}}</td> 
-                <td>{{product.TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable}}</td>
-                <td>{{product.TxnTaxDetail.TotalTax}}</td>
-
-            </tr>
-        </ng-template>
-    </p-table> -->
     <div class="card" *ngIf="products">
-        <p-table #dt [value]="products" dataKey="id" [rows]="10" 
-            [paginator]="true"
-            [globalFilterFields]="['TxnDate','DocNumber','DueDate','Balance','TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable','TxnTaxDetail.TotalTax']">
-           <ng-template pTemplate="caption">
-                <div class="row m-0">
-                    <div class="table-caption-title align-self-center">
-                        <h4>Invoice Details</h4>
-                    </div>
-                    <div class="">
-                        <div class="d-flex border float-right" style="background-color: white;"> 
-                            <em class="fa-1x mx-2 fas fa-search  align-self-center">
-                                <img  width='30' height='30' src='../../../../../assets/images/search.png'>
-                            </em>
-                            <input  class="form-control" type="text"
-                            placeholder="Search"  (input)="dt.filterGlobal($any($event.target).value, 'contains')"
-                                 >
-                        </div>
-                    </div>
-                </div> 
-            </ng-template> 
-            <ng-template pTemplate="header">
-                <tr>
-                <!-- <th style="width:10rem">Date</th>  -->
-                <th style="width:15rem">Doc Number</th>
-                <th style="width:15rem">Invoice Date</th>
-                <th style="width:15rem">Due Date</th>
-                <th style="width:13rem">CurrencyRef</th>
-                <th style="width:13rem">Total Amount</th>
-                <th style="width:8rem">Calculate Tax</th>
-                </tr>
-                <tr>
-                    <!-- <th style="width:20rem;text-align: center;"> 
-                        <p-columnFilter  type="date" field="TxnDate"></p-columnFilter>
-                    </th> -->
-                    <th style="width:11rem;text-align: center;">
-                        <p-columnFilter type="numeric" field="DocNumber"></p-columnFilter>
-                    </th>
-                    <th style="width:13rem ;text-align: center;">
-                        <p-columnFilter type="date" field="TxnDate"></p-columnFilter>
-                    </th>
-                    <th style="width:20rem;text-align: center;">
-                        <p-columnFilter type="date" field="DueDate"></p-columnFilter>
-                    </th>
-                    <th style="width:13rem;text-align: center;"> 
-                        <p-columnFilter type="text" field="CurrencyRef.value"></p-columnFilter>
-                    </th>
-                    <th style="width:13rem;text-align: center;">
-                        <p-columnFilter type="numeric" field="TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable"></p-columnFilter>
-                    </th>
-                   
-                    <th></th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-customer>
-                <tr>
-                    <td>{{customer.DocNumber}}</td>
-                    <td>{{customer.TxnDate}}</td>
-                    <td>{{customer.DueDate}}</td>
-                    <td>{{customer.CurrencyRef.value}}</td> 
-                    <td>{{customer.TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable}}</td>
-                    <td style="text-align: center;" >
-                        <img  width="30"  height="30" style="cursor: pointer;" (click)="getTaxCalculated(customer)"  title="tax calulation" src="assets/images/tax.png">
-                    </td>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="emptymessage">
-                <tr>
-                    <td colspan="6">No invoice found.</td>
-                </tr>
-            </ng-template>
-        </p-table>
+        <p-table [value]="products" dataKey="DocNumber" [rows]="10" 
+    [paginator]="true" #dt
+    [globalFilterFields]="['TxnDate','DocNumber','DueDate','Balance','TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable','TxnTaxDetail.TotalTax']">
+    <ng-template pTemplate="caption">
+        <div class="row m-0">
+            <div class="table-caption-title align-self-center">
+                <h4>Invoice Details</h4>
+            </div>
+            <div class="">
+                <div class="d-flex border float-right" style="background-color: white;"> 
+                    <em class="fa-1x mx-2 fas fa-search  align-self-center">
+                        <img  width='30' height='30' src='../../../../../assets/images/search.png'>
+                    </em>
+                    <input  class="form-control" type="text"
+                    placeholder="Search"  (input)="dt.filterGlobal($any($event.target).value, 'contains')"
+                         >
+                </div>
+            </div>
+        </div> 
+    </ng-template> 
+    <ng-template pTemplate="header">
+        <tr>
+        <!-- <th style="width:10rem">Date</th>  -->
+        <th style="width:15rem">Doc Number</th>
+        <th style="width:15rem">Invoice Date</th>
+        <th style="width:15rem">Due Date</th>
+        <th style="width:13rem">CurrencyRef</th>
+        <th style="width:13rem">Total Amount</th>
+        <th style="width:8rem">Calculate Tax</th>
+        </tr>
+        <tr>
+            <!-- <th style="width:20rem;text-align: center;"> 
+                <p-columnFilter  type="date" field="TxnDate"></p-columnFilter>
+            </th> -->
+            <th style="width:11rem;text-align: center;">
+                <p-columnFilter type="numeric" field="DocNumber"></p-columnFilter>
+            </th>
+            <th style="width:13rem ;text-align: center;">
+                <p-columnFilter type="date" field="TxnDate"></p-columnFilter>
+            </th>
+            <th style="width:20rem;text-align: center;">
+                <p-columnFilter type="date" field="DueDate"></p-columnFilter>
+            </th>
+            <th style="width:13rem;text-align: center;"> 
+                <p-columnFilter type="text" field="CurrencyRef.value"></p-columnFilter>
+            </th>
+            <th style="width:13rem;text-align: center;">
+                <p-columnFilter type="numeric" field="TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable"></p-columnFilter>
+            </th>
+           
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-expanded="expanded" let-customer>
+        <tr>
+            <td>
+                <a href="#" [pRowToggler]="customer">
+                    <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+                </a>
+                {{customer.DocNumber}}
+            </td>
+            <td>{{customer.TxnDate}}</td>
+            <td>{{customer.DueDate}}</td>
+            <td>{{customer.CurrencyRef.value}}</td> 
+            <td>{{customer.TxnTaxDetail.TaxLine[0].TaxLineDetail.NetAmountTaxable}}</td>
+            <td style="text-align: center;" >
+                <img  width="30"  height="30" style="cursor: pointer;" (click)="getTaxCalculated(customer)"  title="tax calulation" src="assets/images/tax.png">
+            </td>
+        </tr>
+    </ng-template>
+        <ng-template pTemplate="rowexpansion" let-customer>
+            <tr> 
+                <td colspan="7">
+                    <p-table [value]="customer.Line">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Detail Type</th>
+                                <th>Quantity</th> 
+                                <th>Unit Price</th>
+                                <th>Amount</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-product>
+                            <tr *ngIf="product.SalesItemLineDetail !== undefined">
+                                <td>{{product.Id}}</td>
+                                <td>{{product.SalesItemLineDetail.ItemRef.name}}</td>
+                                <td>{{product.DetailType}}</td>
+                                <td>{{product.SalesItemLineDetail.Qty}}</td>
+                                <td>{{product.SalesItemLineDetail.UnitPrice}}</td>
+                                <td>{{product.Amount}}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table> 
     </div>
+
+    
+
     <button type="button" class="p-mr-2 button mb-3 float-right mt-4" [routerLink]="['/customer']" >Back</button>
 
 </div>
