@@ -16,31 +16,15 @@
 
     <div class="bg">
         <main class="supreme-container">
-            <app-header *ngIf = "isToken"></app-header>
-            <div class="mt-5 ml-3" *ngIf = "isToken">
+            <app-header ></app-header>
+            <div class="mt-5 ml-3" >
                 <app-sidebar></app-sidebar>
             </div>
              <!-- routes will be rendered here -->
-             <div *ngIf = "isToken">
+             <div >
                 <router-outlet></router-outlet>
              </div>
         </main>
-        <div class="row"  *ngIf = "!isToken" style="padding: 20px; color:white">
-            <div class="col-md-6 mx-auto p-0">
-                <div class="card">
-                    <div class="login-box">
-                        <div class="login-snip"> <label class="tab">Login</label> 
-                            <div class="login-space">
-                                <div >
-                                    <div class="group"> <label for="user" class="label">SignIn</label></div>
-                                    <div class="group"> <input type="submit" (click)="signIn()" class="button" value="Sign In"> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 
